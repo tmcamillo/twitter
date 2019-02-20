@@ -29,6 +29,7 @@ btn.addEventListener("click", function(event){
 
 btn.addEventListener("click",function(){
     document.getElementById("tweet").innerHTML = sentence.value;
+    timePosted();
 });
 
 sentence.addEventListener("keyup", function(){
@@ -50,6 +51,11 @@ textarea.addEventListener('keydown', function(){
     textarea.style.cssText = 'height:auto; padding:0';
     textarea.style.cssText = 'height:' + textarea.scrollHeight + 'px';
 });
+
+function timePosted() {
+    let now = new Date();
+    document.getElementById("time").innerHTML = now.getHours().toString() + ':' + now.getMinutes().toString();
+};
 
 
 

@@ -74,6 +74,7 @@ textarea {
     border-color: #4289d1;
     font-size: 18px;
     resize: none;
+    overflow: hidden;
 }
 
 .input-bottom {
@@ -100,7 +101,16 @@ button {
     color:white;
     font-size: 15px;
 }
+#time {
+    color:grey;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 5px;
+}
 
+#tweet {
+    margin: 0px;
+}
 .tweet-posted {
     width: 100%;
     padding: 10px;

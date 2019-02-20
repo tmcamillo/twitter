@@ -19,12 +19,16 @@
     
     <main>
         <div class="wrap main-container">
-            <div class="profile-container"></div>
+            <div class="profile-container">
+                <p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultricies quam a orci consectetur rutrum. Nulla gravida imperdiet tellus in convallis. Vestibulum lobortis eu nunc id egestas. Donec et dui odio. Quisque ultricies.</em></p>
+            </div>
             
             <div class="form-container">
                 <form > 
-                    <textarea id="sentence" type="text" placeholder="O que está acontecendo?"></textarea>
+                    <textarea id="sentence" type="text" placeholder="O que está acontecendo?" onkeyup="countDown()"></textarea>
                     <button id="btn-tweet"> twittar </button>
+                    <p id="count-down">140</p>
+                
                 </form>
             </div>
 
@@ -35,7 +39,7 @@
     </main>
 
     <footer>
-        <p>Versão 0.0.1</p>
+        <p>Versão 0.0.2</p>
     </footer>
     
     <script src="twitter.js"></script>

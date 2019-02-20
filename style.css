@@ -62,12 +62,6 @@ header h1 {
 
 }
 
-.form-container p {
-    display: inline-block;
-    font-size: 15px;
-    color: #4a6a83;
-}
-	
 ::placeholder {
     color: #bac6d1;
 }
@@ -81,12 +75,25 @@ textarea {
     font-size: 18px;
     resize: none;
 }
-    
+
+.input-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 24px;
+}
+
+.form-container p {
+    display: inline-block;
+    font-size: 15px;
+    color: #4a6a83;
+    margin: 0px;
+}
+
 button {
     border: 1px solid #4289d1;
     width: 13%;
     height: 15%;
-    margin: 8px 20px 8px 20px;
+    margin: 0px;
     border-radius: 20px;
     background-color: #4289d1;
     display: inline-block;

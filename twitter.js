@@ -12,11 +12,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 filledInput.addEventListener("keyup", function() {
-    if (sentence.value === "" || sentence.value === null) {
-        document.getElementById("btn-tweet").disabled = true;
-        document.getElementById("btn-tweet").style.opacity = "0.5";
-    }
-    else if (sentence.value.length >= maxCharacter) {
+    if (sentence.value.length > maxCharacter) {
         document.getElementById("btn-tweet").disabled = true;
         document.getElementById("btn-tweet").style.opacity = "0.5";
     }
@@ -28,14 +24,17 @@ filledInput.addEventListener("keyup", function() {
 });
 
 btn.addEventListener("click", function(event){
-    event.preventDefault() 
+    event.preventDefault();
 });
 
 btn.addEventListener("click",function(){
     document.getElementById("tweet").innerHTML = sentence.value;
     document.getElementById("sentence").value = '';
+    document.getElementById("btn-tweet").disabled = true;
+    document.getElementById("btn-tweet").style.opacity = "0.5";
     timePosted();
 });
+
 
 sentence.addEventListener("keyup", function(){
     let character = sentence.value.length;
@@ -63,15 +62,10 @@ function timePosted() {
     let hours = now.getHours().toString();
     let minutes = (now.getMinutes().toString() < 10 ? '0':'') + now.getMinutes().toString();
     let timeNow = hours + ':' + minutes;
+    
     document.getElementById("time").innerHTML = timeNow;
 };
 
-/*
-btn.addEventListener('click', function(){
-    let tweet = document.createElement('p');
-    tweet.innerHTML = text
-})
-*/
 
 
 

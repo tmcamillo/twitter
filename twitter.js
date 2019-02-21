@@ -12,7 +12,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 filledInput.addEventListener("keyup", function() {
-    if (sentence.value === "" || sentence.value.length >= maxCharacter) {
+    if (sentence.value === "" || sentence.value === null) {
+        document.getElementById("btn-tweet").disabled = true;
+        document.getElementById("btn-tweet").style.opacity = "0.5";
+    }
+    else if (sentence.value.length >= maxCharacter) {
         document.getElementById("btn-tweet").disabled = true;
         document.getElementById("btn-tweet").style.opacity = "0.5";
     }
@@ -29,6 +33,7 @@ btn.addEventListener("click", function(event){
 
 btn.addEventListener("click",function(){
     document.getElementById("tweet").innerHTML = sentence.value;
+    document.getElementById("sentence").value = '';
     timePosted();
 });
 
@@ -52,10 +57,22 @@ textarea.addEventListener('keydown', function(){
     textarea.style.cssText = 'height:' + textarea.scrollHeight + 'px';
 });
 
+//operador ternário - atalho da condição if - se condition é true, o operador retornará o valor de expr1; se não, ele retorna o valor de exp2. 
 function timePosted() {
     let now = new Date();
-    document.getElementById("time").innerHTML = now.getHours().toString() + ':' + now.getMinutes().toString();
+    let hours = now.getHours().toString();
+    let minutes = (now.getMinutes().toString() < 10 ? '0':'') + now.getMinutes().toString();
+    let timeNow = hours + ':' + minutes;
+    document.getElementById("time").innerHTML = timeNow;
 };
+
+/*
+btn.addEventListener('click', function(){
+    let tweet = document.createElement('p');
+    tweet.innerHTML = text
+})
+*/
+
 
 
 

@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="style.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <title>Twitter</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="style.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<title>Twitter</title>
 </head>
 <body>
-    <header>
-        <div class="wrap">
-            <div class="container-logo">
-                <i class="fab fa-twitter"></i>
-                <h1> Twitter </h1>
-            </div>
-        </div>
-    </header>
+	<header class="header-style">
+		<div class="wrap">
+			<div class="container-logo header-style">
+				<i class="fab fa-twitter"></i>
+				<h1> Twitter </h1>
+			</div>
+		</div>
+	</header>
     
     <main>
-        <div class="wrap main-container">
-            <div class="profile-container">
-                <p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultricies quam a orci consectetur rutrum. Nulla gravida imperdiet tellus in convallis. Vestibulum lobortis eu nunc id egestas. Donec et dui odio. Quisque ultricies.</em></p>
-            </div>
-            
-            <div class="form-container">
-                <form > 
-                    <textarea id="sentence" type="text" placeholder="O que está acontecendo?"></textarea>
-                    <div class="input-bottom">
-                        <button id="btn-tweet"> twittar</button>
-                        <p id="count-down">140</p>
-                    </div>
-                </form>
-            </div>
+			<div class="wrap main-container">
+				<div class="profile-container">
+					<p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultricies quam a orci consectetur rutrum. Nulla gravida imperdiet tellus in convallis. Vestibulum lobortis eu nunc id egestas. Donec et dui odio. Quisque ultricies.</em></p>
+				</div>
+				
+				<div class="form-container">
+					<form > 
+						<textarea id="sentence" type="text" placeholder="O que está acontecendo?"></textarea>
+						<div class="input-bottom">
+							<button id="btn-tweet"> tweet </button>
+							<p id="count-down">140</p>
+						</div>
+					</form>
+				</div>
 
-            <div class="tweet-posted">
-                <p id="tweet"></p>
-                <p id="time"></p>
-            </div>
-        </div>
+				<div class="tweet-posted">
+					<p id="tweet"></p>
+				</div>
+			</div>
     </main>
 
     <footer>
-        <p>Versão 0.0.6</p>
+      <p>Versão 0.0.6.1</p>
     </footer>
     
     <script src="twitter.js"></script>

@@ -4,7 +4,7 @@
 
 ---
 
-Neste desafio, a ideia foi replicar o feed de notícias do Twitter, com manipulação do Dom e utilizando de flexbox para construir o layout.
+Neste desafio a ideia foi replicar o feed de notícias do Twitter fazendo uso da manipulação do DOM e de flexbox para construir o layout e posicionar posts do mais recente ao mais antigo.
 
 ##### Versão 0.0.1
 

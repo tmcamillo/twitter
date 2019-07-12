@@ -3,51 +3,60 @@ const btnTweet = document.getElementById("btn-tweet");
 const counter = document.getElementById("count-down");
 const textarea = document.querySelector("textarea");
 const sentence = document.getElementById("sentence");
-const tweetPosted = document.getElementById("tweet");
+const tweetPlaced = document.getElementById("tweet");
 const countDown = document.getElementById("count-down");
 const maxCharacter = 140;
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", disableBtn);
+function disableBtn() {
   btnTweet.disabled = "true";
   btnTweet.style.opacity = "0.5";
-});
+}
+function enableBtn() {
+  btnTweet.disabled = false;
+  btnTweet.style.opacity = "1";
+}
 
-filledInput.addEventListener("keyup", function() {
+filledInput.addEventListener("keyup", validateTyping);
+function validateTyping() {
   if (sentence.value.length > maxCharacter) {
-    btnTweet.disabled = true;
-    btnTweet.style.opacity = "0.5";
+    disableBtn();
   } else {
-    btnTweet.disabled = false;
-    btnTweet.style.opacity = "1";
+    enableBtn();
   }
-});
+}
 
-btnTweet.addEventListener("click", function(event) {
+btnTweet.addEventListener("click", postTweet);
+function postTweet(event) {
   event.preventDefault();
-  tweetPosted.innerHTML = sentence.value;
-  sentence.value = "";
-  btnTweet.disabled = true;
-  btnTweet.style.opacity = "0.5";
+  createSpotTweet();
+  resetFormClock();
+  disableBtn();
+}
+
+function resetFormClock() {
   countDown.innerHTML = maxCharacter;
   countDown.removeAttribute("style");
-  timePosted();
-});
-/*
-btn.addEventListener("click",function() {
-    let newdiv = document.createElement('div');
-    let newtime = document.createElement('p');
-    let newtweet = document.createElement('p');
-    newtweet.innerHTML = sentence.value;
-    newtime.innerHTML = timePosted();
+  sentence.value = "";
+}
 
-    newdiv.appendChild(newtweet);
-    newdiv.appendChild(newtime);
+function createSpotTweet() {
+  let newdiv = document.createElement("div");
+  let newtime = document.createElement("p");
+  newtime.className += "clock";
+  let newtweet = document.createElement("p");
+  newtweet.className += "post-done";
+  newtweet.innerHTML = sentence.value;
+  newtime.innerHTML = timePosted();
 
-    document.getElementById("tweet").appendChild(newdiv);
-});
-*/
+  newdiv.appendChild(newtweet);
+  newdiv.appendChild(newtime);
 
-sentence.addEventListener("keyup", function() {
+  document.getElementById("tweet").appendChild(newdiv);
+}
+
+sentence.addEventListener("keyup", countdownColors);
+function countdownColors() {
   let character = sentence.value.length;
   let total = maxCharacter - character;
   countDown.innerHTML = total;
@@ -59,13 +68,14 @@ sentence.addEventListener("keyup", function() {
   } else {
     countDown.removeAttribute("style");
   }
-});
+}
 
 // cssText: returns or sets the text of the element's inline style declaration only.
-textarea.addEventListener("keydown", function() {
+textarea.addEventListener("keydown", cssText);
+function cssText() {
   textarea.style.cssText = "height:auto; padding:0";
   textarea.style.cssText = "height:" + textarea.scrollHeight + "px";
-});
+}
 
 function timePosted() {
   let now = new Date();
@@ -73,7 +83,5 @@ function timePosted() {
   let minutes =
     (now.getMinutes().toString() < 10 ? "0" : "") + now.getMinutes().toString();
   let timeNow = hours + ":" + minutes;
-
-  //   document.getElementById("time").innerHTML = timeNow;
   return timeNow;
 }

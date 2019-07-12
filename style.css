@@ -112,6 +112,13 @@ body {
 .post-done {
   margin: 0px;
 }
+
+.column-reverse {
+  margin: 0px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .tweet-posted {
   width: 98%;
   padding: 10px;

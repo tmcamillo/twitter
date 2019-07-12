@@ -3,11 +3,12 @@ const btnTweet = document.getElementById("btn-tweet");
 const counter = document.getElementById("count-down");
 const textarea = document.querySelector("textarea");
 const sentence = document.getElementById("sentence");
-const tweetPlaced = document.getElementById("tweet");
+// const tweetPlaced = document.getElementById("tweet");
 const countDown = document.getElementById("count-down");
 const maxCharacter = 140;
 
 document.addEventListener("DOMContentLoaded", disableBtn);
+
 function disableBtn() {
   btnTweet.disabled = "true";
   btnTweet.style.opacity = "0.5";
@@ -17,22 +18,20 @@ function enableBtn() {
   btnTweet.style.opacity = "1";
 }
 
-filledInput.addEventListener("keyup", validateTyping);
-function validateTyping() {
+filledInput.addEventListener("keyup", () => {
   if (sentence.value.length > maxCharacter) {
     disableBtn();
   } else {
     enableBtn();
   }
-}
+});
 
-btnTweet.addEventListener("click", postTweet);
-function postTweet(event) {
+btnTweet.addEventListener("click", event => {
   event.preventDefault();
   createSpotTweet();
   resetFormClock();
   disableBtn();
-}
+});
 
 function resetFormClock() {
   countDown.innerHTML = maxCharacter;
@@ -46,6 +45,7 @@ function createSpotTweet() {
   newtime.className += "clock";
   let newtweet = document.createElement("p");
   newtweet.className += "post-done";
+
   newtweet.innerHTML = sentence.value;
   newtime.innerHTML = timePosted();
 
@@ -55,8 +55,7 @@ function createSpotTweet() {
   document.getElementById("tweet").appendChild(newdiv);
 }
 
-sentence.addEventListener("keyup", countdownColors);
-function countdownColors() {
+sentence.addEventListener("keyup", () => {
   let character = sentence.value.length;
   let total = maxCharacter - character;
   countDown.innerHTML = total;
@@ -68,14 +67,13 @@ function countdownColors() {
   } else {
     countDown.removeAttribute("style");
   }
-}
+});
 
 // cssText: returns or sets the text of the element's inline style declaration only.
-textarea.addEventListener("keydown", cssText);
-function cssText() {
+textarea.addEventListener("keydown", () => {
   textarea.style.cssText = "height:auto; padding:0";
   textarea.style.cssText = "height:" + textarea.scrollHeight + "px";
-}
+});
 
 function timePosted() {
   let now = new Date();
